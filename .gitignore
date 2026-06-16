@@ -1,0 +1,15 @@
+# Local files
+*.log
+*.tmp
+.env
+.vscode/
+.DS_Store
+
+# PowerShell output reports
+*.csv
+*.json
+
+# Terraform local state if added later
+.terraform/
+*.tfstate
+*.tfstate.*
