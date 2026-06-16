@@ -1,38 +1,71 @@
-# Harsha Tennakoon
+# Azure Infrastructure Operations Blueprint
 
-**Cloud Infrastructure Engineer | Microsoft Azure | Hybrid Cloud | L2/L3 Operations**  
-Stockholm, Sweden
+This repository shows a practical Azure infrastructure operations blueprint aligned with L2/L3 cloud support, hybrid infrastructure, security baseline, monitoring and operational readiness.
 
-I am an Azure-focused infrastructure engineer with 14+ years of experience across enterprise IT, data center operations, hybrid infrastructure, and cloud operations. My work focuses on secure, reliable, and well-documented infrastructure support: Azure IaaS, networking, monitoring, backup/DR, identity access support, automation, and operational readiness.
+## Purpose
 
-## Core Skills
+The goal is to demonstrate how I would structure a small production-style Azure environment with clear standards for:
 
-- **Azure Infrastructure:** Azure VMs, storage accounts, VNets, subnets, NSGs, route tables, private endpoints, Bastion, Azure Backup, Azure Monitor, Log Analytics
-- **Hybrid Cloud & Data Center:** Azure + on-premises infrastructure, Windows/Linux servers, Active Directory, DNS/DHCP, VMware ESXi, Hyper-V, storage and backup
-- **L2/L3 Operations:** incident triage, service restoration, root cause analysis, change execution, patching support, escalation management and ITSM documentation
-- **Networking:** TCP/IP, DNS, DHCP, routing, VLANs, firewalls, VPN/ExpressRoute concepts, load balancing concepts, VNet peering, NSG/UDR troubleshooting
-- **Identity & Access:** Active Directory, Microsoft Entra ID, RBAC, MFA, Conditional Access, PIM concepts, Entra Connect concepts, group-based access
-- **Automation:** PowerShell, Azure CLI, Bash/Python, Bicep/ARM exposure, Git-based operational documentation and reusable scripts
-- **Security & Governance:** Defender for Cloud, Secure Score improvement, Key Vault, encryption, Azure Policy, tagging standards, cost awareness
+- Resource groups and naming
+- VNets, subnets, NSGs and route tables
+- Azure Bastion for secure admin access
+- Diagnostics and Log Analytics
+- Azure Backup readiness
+- Tagging and cost ownership
+- Basic governance using Azure Policy concepts
+- Operational handover documentation
 
-## Certifications
+## Architecture Overview
 
-- Microsoft Certified: Azure Administrator Associate (AZ-104)
-- Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
-- Microsoft Certified: Azure Security Engineer Associate (AZ-500)
-- LFCS Linux — in progress
+```text
+Internet / Admin User
+        |
+        | Secure admin access
+        v
+Azure Bastion
+        |
+        v
+Hub / Workload VNet
+  |-- Management Subnet
+  |-- Application Subnet
+  |-- Data Subnet
+  |-- Private Endpoint Subnet
+        |
+        v
+Azure Monitor + Log Analytics + Backup Vault
+```
 
-## Featured GitHub Projects
+## What this project demonstrates
 
-| Project | Focus Area | What it demonstrates |
-|---|---|---|
-| [Azure Infrastructure Operations Blueprint](./azure-infrastructure-operations-blueprint) | Azure IaaS, governance, monitoring | Landing-zone style resource standards, networking, diagnostics, backup and runbooks |
-| [Hybrid Connectivity & Network Support](./hybrid-connectivity-network-support) | Hybrid cloud networking | VPN/ExpressRoute concepts, firewall rule documentation and troubleshooting checklists |
-| [Azure Monitoring Backup Resilience](./azure-monitoring-backup-resilience) | Operations readiness | Azure Monitor, Log Analytics, backup/restore checks and incident response runbooks |
-| [PowerShell Azure Ops Toolkit](./powershell-azure-ops-toolkit) | Automation | Scripts for diagnostics, VM inventory, compliance drift checks and operational reports |
+- Azure infrastructure design thinking
+- Network segmentation using subnet and NSG patterns
+- Diagnostic settings and monitoring readiness
+- Operational documentation suitable for handover to run teams
+- Bicep/PowerShell-based repeatable deployment approach
 
-## Professional Direction
+## Repository Structure
 
-I am focused on Azure Cloud Infrastructure Engineer, Hybrid Cloud Engineer, Infrastructure Operations Engineer and L2/L3 Cloud Support Engineer roles where I can combine cloud knowledge, strong troubleshooting, automation, documentation and customer-facing support.
+```text
+.
+├── bicep/
+│   ├── main.bicep
+│   └── parameters.dev.json
+├── scripts/
+│   ├── deploy.ps1
+│   └── validate-environment.ps1
+├── runbooks/
+│   ├── incident-triage.md
+│   ├── change-implementation-checklist.md
+│   └── operational-handover.md
+└── docs/
+    ├── naming-and-tagging-standard.md
+    └── security-baseline.md
+```
 
-> Note: These repositories are portfolio labs and blueprints based on real operational experience. They avoid customer-specific data, secrets and production identifiers.
+## Skills Highlighted
+
+Azure VMs, VNets, NSGs, route tables, Azure Bastion, Azure Monitor, Log Analytics, Azure Backup, Azure Policy concepts, RBAC, PowerShell, Bicep, Git and ITSM-style documentation.
+
+## Disclaimer
+
+This is a portfolio/lab blueprint. It uses placeholders and does not contain any customer data, secrets or production identifiers.
